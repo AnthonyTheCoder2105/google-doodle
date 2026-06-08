@@ -21,6 +21,8 @@ function next() {
     enter();
 }
 
+window.next = next;
+
 window.onload=function() {
     var input = document.getElementById("input1");
     
