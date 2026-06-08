@@ -1,5 +1,20 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB06NO-jRycSujE8GVINgEFUBg0wvb4TWA",
+  authDomain: "fake-website-testing.firebaseapp.com",
+  projectId: "fake-website-testing",
+  storageBucket: "fake-website-testing.firebasestorage.app",
+  messagingSenderId: "916335393124",
+  appId: "1:916335393124:web:76c4bc56168c856a186271",
+  measurementId: "G-NL3M02DSHS"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 var counter = 0;
-var email
+var email;
 var password;
 
 function next() {
